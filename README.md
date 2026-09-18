@@ -1,1 +1,1 @@
-# index.hyml
+# index.html
