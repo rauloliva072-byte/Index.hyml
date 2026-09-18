@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vigilant Systems | Verificación</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef3f8;color:#17212b}
+.card{max-width:430px;margin:40px auto;padding:28px 22px;background:white;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.12);text-align:center}
+h1{margin:4px 0;font-size:28px;color:#123b66}.sub{color:#65727e;margin:6px 0 24px}
+.ok{display:inline-block;padding:9px 16px;border-radius:20px;background:#e8f5ec;color:#21733a;font-weight:bold;margin-bottom:22px}
+.info{text-align:left;background:#f6f8fa;border-radius:12px;padding:16px}.row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid #dde3e8}
+.row:last-child{border-bottom:0}.label{font-weight:bold;color:#596672}.value{text-align:right}footer{margin-top:24px;font-size:12px;color:#7a8792}
+</style>
+</head>
+<body>
+<main class="card">
+<div style="font-size:48px">🛡️</div>
+<h1>Vigilant Systems</h1>
+<div class="sub">S.A. de C.V.</div>
+<div class="ok">✓ Gafete verificado</div>
+<div class="info">
+<div class="row"><span class="label">Nombre</span><span class="value" id="nombre">—</span></div>
+<div class="row"><span class="label">Puesto</span><span class="value" id="puesto">—</span></div>
+<div class="row"><span class="label">Núm. empleado</span><span class="value" id="empleado">—</span></div>
+<div class="row"><span class="label">Núm. gafete</span><span class="value" id="gafete">—</span></div>
+</div>
+<footer>Documento de verificación digital de Vigilant Systems.</footer>
+</main>
+<script>
+const datos={
+"VS-001":{nombre:"Sanchez Fuentes America Yamileth",puesto:"Administradora",empleado:"002",gafete:"VS-001"},
+"VS-002":{nombre:"Oliva López Raúl Antonio",puesto:"Jefe de operaciones",empleado:"003",gafete:"VS-002"},
+"VS-003":{nombre:"Esquer Rodríguez Dana Guadalupe Yamileth",puesto:"Jefe de sistemas de seguridad",empleado:"004",gafete:"VS-003"}
+};
+const id=new URLSearchParams(location.search).get("id")||"VS-002";
+const p=datos[id];
+if(p){for(const k of ["nombre","puesto","empleado","gafete"])document.getElementById(k).textContent=p[k]}
+else document.querySelector(".ok").textContent="Gafete no encontrado";
+</script>
+</body>
+</html>
